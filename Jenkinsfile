@@ -51,7 +51,7 @@ pipeline{
                
            }
                
-        }
+        
         stage(email){
             steps{
                 script{
@@ -61,5 +61,5 @@ pipeline{
                    }
             }
         }
-        
+    }
 }
