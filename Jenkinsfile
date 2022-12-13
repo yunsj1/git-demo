@@ -33,6 +33,11 @@ pipeline{
                failure{
                    echo 'test fail'
                    script{
+                        script{
+                        mail to: '3114733233@qq.com',
+                        subject: "Jenkins Job: ${currentBuild.fullProjectName}",
+                        body: "工作环境${env .WORKSPACE} \n 第${currentBuild.number}次构建 \n 构建结果 - ${currentBuild.result}"                       
+                        }
                         deleteDir()
                      }
                }
@@ -42,14 +47,6 @@ pipeline{
            }
                
         
-        stage(email){
-            steps{
-                script{
-                        mail to: '3114733233@qq.com',
-                        subject: "Jenkins Job: ${currentBuild.fullProjectName}",
-                        body: "工作环境${env .WORKSPACE} \n 第${currentBuild.number}次构建 \n 构建结果 - ${currentBuild.result}"                       
-                   }
-            }
-        }
+       
     }
 }
