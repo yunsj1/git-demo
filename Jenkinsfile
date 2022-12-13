@@ -5,12 +5,10 @@ pipeline{
         }
     }
     stages{
-        stage(clean){
-        
+        stage(git clone){
         steps{
            script{
-               
-               bat 'hostname'
+               bat 'git clone git@github.com:yunsj1/testdemo.git'
            }
         }
         }
